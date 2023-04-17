@@ -5,7 +5,7 @@ import pipeline.djurdjevic.elena.instructions.Instruction;
 import java.util.LinkedList;
 
 public class Pipeline {
-    
+
     private LinkedList<Instruction> instructions = new LinkedList<>();
     private LinkedList<Instruction> fetched = new LinkedList<>();
     private LinkedList<Instruction> decoded = new LinkedList<>();
@@ -30,7 +30,7 @@ public class Pipeline {
                 instruction.updateMemCurrentCycle();
             }
             else {
-                accessed.addLast(accessed.pollFirst());
+                accessed.addLast(executed.pollFirst());
             }
         }
         execute();
@@ -44,7 +44,7 @@ public class Pipeline {
                 instruction.updateExCurrentCycle();
             }
             else {
-                decoded.addLast(decoded.pollFirst());
+                executed.addLast(decoded.pollFirst());
             }
         }
         decode();
