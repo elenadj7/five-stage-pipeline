@@ -1,4 +1,4 @@
-package pipeline.djurdjevic.elena;
+package pipeline.djurdjevic.elena.processing;
 
 public class Register {
 
@@ -12,8 +12,8 @@ public class Register {
     public void isBusy(boolean busy){
         isBusy = busy;
     }
-    public boolean isBusy(){
-        return isBusy;
+    public boolean isNotBusy(){
+        return !isBusy;
     }
     public String getName(){
         return name;
