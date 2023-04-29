@@ -23,7 +23,7 @@ public abstract class Instruction {
         this.memCycles = memCycles;
         this.destination = destination;
         registers.add(destination);
-        id = ++instance;
+        id = instance++;
     }
 
     public int getId() {
@@ -62,9 +62,14 @@ public abstract class Instruction {
         return registers;
     }
 
-    public void resetExCurrentCycle(){
+    public void resetExCurrentCycle() {
         exCurrentCycle = 0;
     }
+
+    public void resetMemCurrentCycle() {
+        memCurrentCycle = 0;
+    }
+
     public void setRegistersBusy(boolean busy) {
         registers.forEach(r -> r.isBusy(busy));
     }
