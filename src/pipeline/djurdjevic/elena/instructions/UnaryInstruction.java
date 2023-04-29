@@ -4,12 +4,16 @@ import pipeline.djurdjevic.elena.processing.Register;
 
 public abstract class UnaryInstruction extends Instruction {
 
-    private Register source;
-    private Register destination;
+    protected Register source;
 
     public UnaryInstruction(String name, int exCycles, int memCycles, Register source, Register destination) {
-        super(name, exCycles, memCycles);
+        super(name, exCycles, memCycles, destination);
         this.source = source;
-        this.destination = destination;
+        registers.add(source);
     }
+
+    public Register getSource() {
+        return source;
+    }
+
 }
